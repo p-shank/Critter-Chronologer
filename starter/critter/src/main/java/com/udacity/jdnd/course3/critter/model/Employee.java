@@ -11,7 +11,7 @@ import com.udacity.jdnd.course3.critter.user.EmployeeSkill;
 public class Employee {
 
 	@Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "employee_id")
     private long id;
 

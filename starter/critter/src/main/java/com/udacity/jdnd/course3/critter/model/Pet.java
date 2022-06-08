@@ -1,5 +1,6 @@
 package com.udacity.jdnd.course3.critter.model;
 
+import java.time.LocalDate;
 import java.util.Set;
 import javax.persistence.*;
 import com.udacity.jdnd.course3.critter.pet.PetType;
@@ -8,7 +9,7 @@ import com.udacity.jdnd.course3.critter.pet.PetType;
 public class Pet {
 
 	@Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "pet_id")
     private long id;
 
@@ -21,10 +22,13 @@ public class Pet {
 	@ManyToOne
 	@JoinColumn(name = "owner_id")
 	private Customer owner;
-
-//	@ManyToMany(mappedBy = "pets")
-//	private Set<Schedule> schedule;
 	
+	@Column(name = "birth_date")
+    private LocalDate birthDate;
+    
+	@Column(name = "notes")
+    private String notes;
+
 	public long getId() {
 		return id;
 	}
@@ -57,11 +61,19 @@ public class Pet {
 		this.owner = owner;
 	}
 
-//	public Set<Schedule> getSchedule() {
-//		return schedule;
-//	}
-//
-//	public void setSchedule(Set<Schedule> schedule) {
-//		this.schedule = schedule;
-//	}
+	public LocalDate getBirthDate() {
+		return birthDate;
+	}
+
+	public void setBirthDate(LocalDate birthDate) {
+		this.birthDate = birthDate;
+	}
+
+	public String getNotes() {
+		return notes;
+	}
+
+	public void setNotes(String notes) {
+		this.notes = notes;
+	}
 }

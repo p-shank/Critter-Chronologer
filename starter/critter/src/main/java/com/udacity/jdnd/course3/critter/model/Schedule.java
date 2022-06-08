@@ -11,7 +11,7 @@ import com.udacity.jdnd.course3.critter.user.EmployeeSkill;
 public class Schedule {
 
 	@Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "schedule_id")
     private long id;
 

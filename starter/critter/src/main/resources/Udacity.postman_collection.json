@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "3da4eeec-6238-471f-ab55-ce0d742fa76e",
+		"_postman_id": "72dc2de0-272e-4c71-a93e-823c1bb3c935",
 		"name": "Udacity",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6625670"
 	},
 	"item": [
 		{
@@ -19,7 +20,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"name\": \"Alex\",\r\n  \"phoneNumber\": \"1234567890\"\r\n}",
+					"raw": "{\r\n  \"customerName\": \"Alex\",\r\n  \"contactNumber\": \"1234567890\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -55,7 +56,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"type\": \"CAT\",\r\n  \"name\": \"Kilo\",\r\n  \"birthDate\": \"2019-12-16T04:43:57.995Z\",\r\n  \"notes\": \"HI KILO\"\r\n, \"ownerId\": \"1\"\n}",
+					"raw": "{\r\n  \"petType\": \"CAT\",\r\n  \"petName\": \"Kilo\",\r\n  \"birthDate\": \"2019-12-16T04:43:57.995Z\",\r\n  \"notes\": \"HI KILO\"\r\n, \"ownerId\": \"1\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -90,7 +91,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"name\": \"Hannah\",\r\n  \"skills\": [\"PETTING\", \"FEEDING\"]\r\n}",
+					"raw": "{\r\n  \"employeeName\": \"Hannah\",\r\n  \"skills\": [\"PETTING\", \"FEEDING\"]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -505,6 +506,5 @@
 			},
 			"response": []
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }
