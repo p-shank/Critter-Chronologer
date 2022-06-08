@@ -47,7 +47,7 @@ public class CritterFunctionalTest {
         CustomerDTO customerDTO = createCustomerDTO();
         CustomerDTO newCustomer = userController.saveCustomer(customerDTO);
         CustomerDTO retrievedCustomer = userController.getAllCustomers().get(0);
-        Assertions.assertEquals(newCustomer.getName(), customerDTO.getName());
+        Assertions.assertEquals(newCustomer.getCustomerName(), customerDTO.getCustomerName());
         Assertions.assertEquals(newCustomer.getId(), retrievedCustomer.getId());
         Assertions.assertTrue(retrievedCustomer.getId() > 0);
     }
@@ -79,7 +79,7 @@ public class CritterFunctionalTest {
         //make sure you can retrieve pets by owner
         List<PetDTO> pets = petController.getPetsByOwner(newCustomer.getId());
         Assertions.assertEquals(newPet.getId(), pets.get(0).getId());
-        Assertions.assertEquals(newPet.getName(), pets.get(0).getName());
+        Assertions.assertEquals(newPet.getPetName(), pets.get(0).getPetName());
 
         //check to make sure customer now also contains pet
         CustomerDTO retrievedCustomer = userController.getAllCustomers().get(0);
@@ -95,8 +95,8 @@ public class CritterFunctionalTest {
         PetDTO petDTO = createPetDTO();
         petDTO.setOwnerId(newCustomer.getId());
         PetDTO newPet = petController.savePet(petDTO);
-        petDTO.setType(PetType.DOG);
-        petDTO.setName("DogName");
+        petDTO.setPetType(PetType.DOG);
+        petDTO.setPetName("DogName");
         PetDTO newPet2 = petController.savePet(petDTO);
 
         List<PetDTO> pets = petController.getPetsByOwner(newCustomer.getId());
@@ -187,8 +187,8 @@ public class CritterFunctionalTest {
         scheduleController.createSchedule(createScheduleDTO(petList, employeeList, date, skillSet));
         ScheduleDTO scheduleDTO = scheduleController.getAllSchedules().get(0);
 
-        Assertions.assertEquals(scheduleDTO.getActivities(), skillSet);
-        Assertions.assertEquals(scheduleDTO.getDate(), date);
+        Assertions.assertEquals(scheduleDTO.getActivity(), skillSet);
+        Assertions.assertEquals(scheduleDTO.getScheduleDate(), date);
         Assertions.assertEquals(scheduleDTO.getEmployeeIds(), employeeList);
         Assertions.assertEquals(scheduleDTO.getPetIds(), petList);
     }
@@ -202,8 +202,8 @@ public class CritterFunctionalTest {
         ScheduleDTO sched3 = new ScheduleDTO();
         sched3.setEmployeeIds(sched1.getEmployeeIds());
         sched3.setPetIds(sched2.getPetIds());
-        sched3.setActivities(Sets.newHashSet(EmployeeSkill.SHAVING, EmployeeSkill.PETTING));
-        sched3.setDate(LocalDate.of(2020, 3, 23));
+        sched3.setActivity(Sets.newHashSet(EmployeeSkill.SHAVING, EmployeeSkill.PETTING));
+        sched3.setScheduleDate(LocalDate.of(2020, 3, 23));
         scheduleController.createSchedule(sched3);
 
         /*
@@ -243,21 +243,21 @@ public class CritterFunctionalTest {
 
     private static EmployeeDTO createEmployeeDTO() {
         EmployeeDTO employeeDTO = new EmployeeDTO();
-        employeeDTO.setName("TestEmployee");
+        employeeDTO.setEmployeeName("TestEmployee");
         employeeDTO.setSkills(Sets.newHashSet(EmployeeSkill.FEEDING, EmployeeSkill.PETTING));
         return employeeDTO;
     }
     private static CustomerDTO createCustomerDTO() {
         CustomerDTO customerDTO = new CustomerDTO();
-        customerDTO.setName("TestEmployee");
-        customerDTO.setPhoneNumber("123-456-789");
+        customerDTO.setCustomerName("TestEmployee");
+        customerDTO.setContactNumber("123-456-789");
         return customerDTO;
     }
 
     private static PetDTO createPetDTO() {
         PetDTO petDTO = new PetDTO();
-        petDTO.setName("TestPet");
-        petDTO.setType(PetType.CAT);
+        petDTO.setPetName("TestPet");
+        petDTO.setPetType(PetType.CAT);
         return petDTO;
     }
 
@@ -272,8 +272,8 @@ public class CritterFunctionalTest {
         ScheduleDTO scheduleDTO = new ScheduleDTO();
         scheduleDTO.setPetIds(petIds);
         scheduleDTO.setEmployeeIds(employeeIds);
-        scheduleDTO.setDate(date);
-        scheduleDTO.setActivities(activities);
+        scheduleDTO.setScheduleDate(date);
+        scheduleDTO.setActivity(activities);
         return scheduleDTO;
     }
 
@@ -297,9 +297,9 @@ public class CritterFunctionalTest {
 
     private static void compareSchedules(ScheduleDTO sched1, ScheduleDTO sched2) {
         Assertions.assertEquals(sched1.getPetIds(), sched2.getPetIds());
-        Assertions.assertEquals(sched1.getActivities(), sched2.getActivities());
+        Assertions.assertEquals(sched1.getActivity(), sched2.getActivity());
         Assertions.assertEquals(sched1.getEmployeeIds(), sched2.getEmployeeIds());
-        Assertions.assertEquals(sched1.getDate(), sched2.getDate());
+        Assertions.assertEquals(sched1.getScheduleDate(), sched2.getScheduleDate());
     }
 
 }

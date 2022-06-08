@@ -8,8 +8,8 @@ import java.util.List;
  */
 public class CustomerDTO {
     private long id;
-    private String name;
-    private String phoneNumber;
+    private String customerName;
+    private String contactNumber;
     private String notes;
     private List<Long> petIds;
 
@@ -21,20 +21,20 @@ public class CustomerDTO {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getCustomerName() {
+        return customerName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setCustomerName(String name) {
+        this.customerName = name;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public String getContactNumber() {
+        return contactNumber;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setContactNumber(String contactNumber) {
+        this.contactNumber = contactNumber;
     }
 
     public String getNotes() {

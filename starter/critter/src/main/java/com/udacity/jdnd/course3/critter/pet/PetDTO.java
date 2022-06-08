@@ -8,26 +8,26 @@ import java.time.LocalDate;
  */
 public class PetDTO {
     private long id;
-    private PetType type;
-    private String name;
+    private PetType petType;
+    private String petName;
     private long ownerId;
     private LocalDate birthDate;
     private String notes;
 
-    public PetType getType() {
-        return type;
+    public PetType getPetType() {
+        return petType;
     }
 
-    public void setType(PetType type) {
-        this.type = type;
+    public void setPetType(PetType petType) {
+        this.petType = petType;
     }
 
-    public String getName() {
-        return name;
+    public String getPetName() {
+        return petName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setPetName(String petName) {
+        this.petName = petName;
     }
 
     public long getOwnerId() {

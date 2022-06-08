@@ -9,7 +9,7 @@ import java.util.Set;
  */
 public class EmployeeDTO {
     private long id;
-    private String name;
+    private String employeeName;
     private Set<EmployeeSkill> skills;
     private Set<DayOfWeek> daysAvailable;
 
@@ -21,12 +21,12 @@ public class EmployeeDTO {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getEmployeeName() {
+        return employeeName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setEmployeeName(String employeeName) {
+        this.employeeName = employeeName;
     }
 
     public Set<EmployeeSkill> getSkills() {
